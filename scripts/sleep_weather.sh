@@ -18,19 +18,18 @@ ensure_single_process()
 
 main()
 {
-	ensure_single_process
+	local current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    local datafile=/tmp/weather.txt
 
-	current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-	if [ ! -f $current_dir/../data/weather.txt ]; then
-		printf "Loading..." > $current_dir/../data/weather.txt
+	if [ ! -f $datafile ]; then
+		printf "Loading..." > $datafile
 	fi
 
-	$current_dir/weather.sh > $current_dir/../data/weather.txt
+	$current_dir/weather.sh > $datafile
 
 	while tmux has-session &> /dev/null
 	do
-		$current_dir/weather.sh $fahrenheit $location > $current_dir/../data/weather.txt
+		$current_dir/weather.sh $fahrenheit $location > $datafile
 		if tmux has-session &> /dev/null
 		then
 			sleep 1200
