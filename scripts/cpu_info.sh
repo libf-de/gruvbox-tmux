@@ -39,7 +39,7 @@ get_percent()
 main()
 {
 	# storing the refresh rate in the variable RATE, default is 5
-	RATE=$(get_tmux_option "@dracula-refresh-rate" 5)
+	RATE=$(get_tmux_option "@gruvbox-refresh-rate" 5)
 	cpu_percent=$(get_percent)
 	echo "CPU $cpu_percent"
 	sleep $RATE

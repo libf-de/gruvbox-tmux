@@ -7,7 +7,7 @@ export LC_ALL=en_US.UTF-8
 fahrenheit=$1
 location=$2
 
-LOCKFILE=/tmp/.dracula-tmux-weather.lock
+LOCKFILE=/tmp/.gruvbox-tmux-weather.lock
 
 ensure_single_process()
 {
