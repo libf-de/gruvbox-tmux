@@ -41,9 +41,9 @@ main()
   show_refresh=$(get_tmux_option "@dracula-refresh-rate" 5)
 
   # Dracula Color Pallette
-  white='#ebdbb2'
+  white='#fbf1c7'
   gray='#a89984'
-  dark_gray='#928374'
+  dark_gray='#282828'
   light_purple='#d3869b'
   dark_purple='#b16286'
   cyan='#458588'
@@ -124,10 +124,10 @@ main()
   tmux set-option -g pane-border-style "fg=${gray}"
 
   # message styling
-  tmux set-option -g message-style "bg=${gray},fg=${white}"
+  tmux set-option -g message-style "bg=${dark_gray},fg=${white}"
 
   # status bar
-  tmux set-option -g status-style "bg=${gray},fg=${white}"
+  tmux set-option -g status-style "bg=${dark_gray},fg=${white}"
 
   # wait unit data/weather.txt exists just to avoid errors
   # this should almost never need to wait unless something unexpected occurs
@@ -138,9 +138,9 @@ main()
   # Powerline Configuration
   if $show_powerline; then
 
-      tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon} #[fg=${green},bg=${gray}]#{?client_prefix,#[fg=${yellow}],}${left_sep}"
+      tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon} #[fg=${green},bg=${dark_gray}]#{?client_prefix,#[fg=${yellow}],}${left_sep}"
       tmux set-option -g  status-right ""
-      powerbg=${gray}
+      powerbg=${dark_gray}
 
       if $show_battery; then # battery
         tmux set-option -g  status-right "#[fg=${pink},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${dark_gray},bg=${pink}] #($current_dir/battery.sh)"
@@ -184,7 +184,7 @@ main()
         fi
       fi
 
-      tmux set-window-option -g window-status-current-format "#[fg=${gray},bg=${dark_purple}]${left_sep}#[fg=${white},bg=${dark_purple}] #I #W${current_flags} #[fg=${dark_purple},bg=${gray}]${left_sep}"
+      tmux set-window-option -g window-status-current-format "#[fg=${dark_gray},bg=${dark_purple}]${left_sep}#[fg=${white},bg=${dark_purple}] #I #W${current_flags} #[fg=${dark_purple},bg=${dark_gray}]${left_sep}"
 
   # Non Powerline Configuration
   else
@@ -231,7 +231,7 @@ main()
 
   fi
 
-  tmux set-window-option -g window-status-format "#[fg=${white}]#[bg=${gray}] #I #W${flags}"
+  tmux set-window-option -g window-status-format "#[fg=${white}]#[bg=${dark_gray}] #I #W${flags}"
   tmux set-window-option -g window-status-activity-style "bold"
   tmux set-window-option -g window-status-bell-style "bold"
 }
