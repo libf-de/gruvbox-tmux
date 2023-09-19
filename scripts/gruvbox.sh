@@ -117,7 +117,7 @@ main()
 
   # pane border styling
   tmux set-option -g pane-active-border-style "fg=${white}"
-  tmux set-option -g pane-border-style "fg=${dark_gray}"
+  tmux set-option -g pane-border-style "fg=${gray}"
 
   # message styling
   tmux set-option -g message-style "bg=${dark_gray},fg=${white}"
