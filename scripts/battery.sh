@@ -12,7 +12,7 @@ linux_acpi() {
             ;;
 
             percent)
-                cat $BAT/capacity
+                cat /sys/class/power_supply/BAT?/capacity | awk '{s+=$1; c+=1} END {printf "%.0f%", s/c}'
             ;;
 
             *)
@@ -112,7 +112,7 @@ main()
 	bat_perc=$(battery_percent)
 
 	if [ -z "$bat_stat" ]; then # Test if status is empty or not
-		echo "♥ $bat_perc"
+		echo "♥ $bat_perc $bat_perc"
 	elif [ -z "$bat_perc" ]; then # In case it is a desktop with no battery percent, only AC power
 		echo "♥ $bat_stat $bat_perc"
 	else
