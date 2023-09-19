@@ -42,7 +42,7 @@ main()
 
   # Dracula Color Pallette
   white='#fbf1c7'
-  gray='#a89984'
+  gray='#645b4f'
   dark_gray='#282828'
   light_purple='#d3869b'
   dark_purple='#b16286'
