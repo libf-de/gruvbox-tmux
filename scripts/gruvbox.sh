@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # setting the locale, some users have issues with different locales, this forces the correct one
-export LC_ALL=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
 
 get_tmux_option() {
   local option=$1
@@ -116,12 +116,8 @@ main()
   tmux set-option -g status-right-length 100
 
   # pane border styling
-  if $show_border_contrast; then
-    tmux set-option -g pane-active-border-style "fg=${light_purple}"
-  else
-    tmux set-option -g pane-active-border-style "fg=${dark_purple}"
-  fi
-  tmux set-option -g pane-border-style "fg=${gray}"
+  tmux set-option -g pane-active-border-style "fg=${white}"
+  tmux set-option -g pane-border-style "fg=${dark_gray}"
 
   # message styling
   tmux set-option -g message-style "bg=${dark_gray},fg=${white}"
